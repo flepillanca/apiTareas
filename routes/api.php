@@ -20,3 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get("/ListarTareas", [TareasController::class, "Listar"]);
+Route::get("/ListarTareas/{id}", [TareasController::class, "ListarUno"]);
+Route::post("/CrearTarea", [TareasController::class, "CrearTarea"]);
+Route::put("/ModificarTarea/{id}", [TareasController::class, "ModificarTarea"]);
+Route::delete("/EliminarTarea/{id}", [TareasController::class, "EliminarTarea"]);
+
