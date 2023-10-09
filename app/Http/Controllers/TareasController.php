@@ -30,6 +30,24 @@ class TareasController extends Controller{
         }
     }
 
+
+    public function ListarDato(Request $request, $dato){
+        try{
+            $tarea = Tarea::where('titulo', 'LIKE', '%' . $dato . '%')
+                        ->orWhere('contenido', 'LIKE', '%' . $dato . '%')
+                        ->orWhere('estado', 'LIKE', '%' . $dato . '%')
+                        ->get();
+            if($tarea){
+                return $tarea;
+            } else {
+                return response()->json(['error' => 'No se encontró la tarea'], 404);
+            }
+
+        } catch (\Exception $exception){
+            return response()->json(['error'=> 'Ocurrió un error'], 500);
+        }
+    }
+
     
     public function Crear(Request $request){
         try{
