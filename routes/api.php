@@ -19,9 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get("/ListarTareas", [TareasController::class, "Listar"]);
-Route::get("/ListarTareas/{id}", [TareasController::class, "ListarUno"]);
-Route::post("/CrearTarea", [TareasController::class, "CrearTarea"]);
-Route::put("/ModificarTarea/{id}", [TareasController::class, "ModificarTarea"]);
-Route::delete("/EliminarTarea/{id}", [TareasController::class, "EliminarTarea"]);
+Route::get("/Listar", [TareasController::class, "Listar"]);
+Route::get("/Listar/{id}", [TareasController::class, "ListarUno"]);
+Route::post("/Crear", [TareasController::class, "Crear"]);
+Route::put("/Modificar/{id}", [TareasController::class, "Modificar"]);
+Route::delete("/Eliminar/{id}", [TareasController::class, "Eliminar"]);
 
